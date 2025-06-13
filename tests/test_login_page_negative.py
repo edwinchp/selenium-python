@@ -7,7 +7,8 @@ from selenium.webdriver.common.by import By
 class TestPositivesScenarios:
 
     @pytest.mark.login
-    def test_positive_login(self, driver):
+    @pytest.mark.negative
+    def test_negative_login(self, driver):
 
         driver.get("https://practicetestautomation.com/practice-test-login/")
 
@@ -17,17 +18,14 @@ class TestPositivesScenarios:
         username_locator.send_keys("student")
 
         password_locator = driver.find_element(By.NAME, "password")
-        password_locator.send_keys("Password123")
+        password_locator.send_keys("wrongpassword")
 
         submit_button_locator = driver.find_element(By.XPATH, "//button[@class='btn']")
         submit_button_locator.click()
 
         actual_url = driver.current_url
-        assert actual_url == "https://practicetestautomation.com/logged-in-successfully/"
+        assert actual_url == "https://practicetestautomation.com/practice-test-login/"
 
-        text_locator = driver.find_element(By.TAG_NAME, "h1")
-        actual_text = text_locator.text
-        assert actual_text == "Logged In Successfully"
-
-        log_out_button_locator = driver.find_element(By.LINK_TEXT, "Log out")
-        assert log_out_button_locator.is_displayed()
+        error_text_locator = driver.find_element(By.ID, "error")
+        actual_text = error_text_locator.text
+        assert actual_text == "Your password is invalid!"
