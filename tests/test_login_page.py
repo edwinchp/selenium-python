@@ -6,13 +6,18 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
+@pytest.fixture()
+def driver():
+    print("Creating Chrome Driver")
+    my_driver = webdriver.Chrome()
+    yield my_driver
+    print("Closing Chrome Driver")
+    my_driver.quit()
 
 class TestPositivesScenarios:
 
     @pytest.mark.login
-    def test_positive_login(self):
-        driver = webdriver.Chrome()
-        time.sleep(5)
+    def test_positive_login(self, driver):
 
         driver.get("https://practicetestautomation.com/practice-test-login/")
 
@@ -36,5 +41,3 @@ class TestPositivesScenarios:
 
         log_out_button_locator = driver.find_element(By.LINK_TEXT, "Log out")
         assert log_out_button_locator.is_displayed()
-
-        driver.close()
