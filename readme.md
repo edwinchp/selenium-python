@@ -9,17 +9,20 @@ This project demonstrates how to use **Pytest** with **Selenium WebDriver** in P
 - pip (comes with Python)
 - `virtualenv` (optional but recommended)
 
-## 🐍 Create and activate a virtual environment (optional)
+## 🐍 Installation steps
 
+Create and activate a virtual environment (optional)
 ```bash
 python -m venv venv
 source venv/bin/activate       # On Windows: venv\Scripts\activate
 ```
 
+Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
+Run test generating a report
 ```bash
 pytest -m login --html=reports/report.html
 ```
@@ -29,7 +32,7 @@ Run with specific browser (Chrome is default)
 pytest -m login --html=reports/report.html --browser="firefox"
 ```
 
-Run in parallel
+Run test in parallel
 ```bash
 pytest -m login --html=reports/report.html -n=2
 ```
