@@ -5,10 +5,9 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 
 
-@pytest.fixture(params=["chrome", "firefox"])
+@pytest.fixture()
 def driver(request):
-    #browser = request.config.getoption("--browser")
-    browser = request.param
+    browser = request.config.getoption("--browser")
     print(f"Creating {browser} Driver")
     if browser == "chrome":
         my_driver = webdriver.Chrome()

@@ -23,3 +23,13 @@ pip install -r requirements.txt
 ```bash
 pytest -m login --html=reports/report.html
 ```
+
+Run with specific browser (Chrome is default)
+```bash
+pytest -m login --html=reports/report.html --browser="firefox"
+```
+
+Run in parallel
+```bash
+pytest -m login --html=reports/report.html -n=2
+```
