@@ -15,8 +15,6 @@ class TestPositivesScenarios:
 
         driver.get("https://practicetestautomation.com/practice-test-login/")
 
-        time.sleep(2)
-
         username_locator = driver.find_element(By.ID, "username")
         username_locator.send_keys(username)
 
@@ -25,8 +23,6 @@ class TestPositivesScenarios:
 
         submit_button_locator = driver.find_element(By.XPATH, "//button[@class='btn']")
         submit_button_locator.click()
-
-        time.sleep(2)
 
         actual_url = driver.current_url
         assert actual_url == "https://practicetestautomation.com/practice-test-login/"

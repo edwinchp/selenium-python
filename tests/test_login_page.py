@@ -11,8 +11,6 @@ class TestPositivesScenarios:
 
         driver.get("https://practicetestautomation.com/practice-test-login/")
 
-        time.sleep(2)
-
         username_locator = driver.find_element(By.ID, "username")
         username_locator.send_keys("student")
 

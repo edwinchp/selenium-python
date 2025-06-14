@@ -15,6 +15,7 @@ def driver(request):
         my_driver =  webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
     else:
         raise TypeError(f"Browser not supported: {browser}")
+    my_driver.implicitly_wait(30)
     yield my_driver
     print(f"Closing {browser} Driver")
     my_driver.quit()
