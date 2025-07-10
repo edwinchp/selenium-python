@@ -14,12 +14,25 @@ This project demonstrates how to use **Pytest** with **Selenium WebDriver** in P
 Create and activate a virtual environment (optional)
 ```bash
 python -m venv venv
-source venv/bin/activate       # On Windows: venv\Scripts\activate
+```
+
+```bash
+source venv/bin/activate       # On Linux
+```
+
+
+```bash
+venv\Scripts\activate          # On Windows
 ```
 
 Install dependencies
 ```bash
 pip install -r requirements.txt
+```
+
+Create .env
+```bash
+cp .env-example .env
 ```
 
 Run test generating a report
@@ -35,4 +48,10 @@ pytest -m login --html=reports/report.html --browser="firefox"
 Run test in parallel
 ```bash
 pytest -m login --html=reports/report.html -n=2
+```
+
+
+Run Selenium Grid
+```bash
+pytest -m login --html=reports/report.html -n=2 --browser="grid"
 ```

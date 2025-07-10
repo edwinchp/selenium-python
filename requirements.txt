@@ -4,3 +4,5 @@ webdriver-manager==4.0.2
 pytest-html==4.1.1
 pytest-xdist==3.7.0
 behave
+requests
+python-dotenv
